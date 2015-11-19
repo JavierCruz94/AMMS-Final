@@ -5,7 +5,7 @@ public class ControlAdministrador extends ControlPersona {
 	private String IDAdministrador;
 	private String ContrasenaAD;
 
-
+//RAWR tengo mucha hambre
 	public ControlAdministrador(){
 		IDAdministrador = "None";
 		ContrasenaAD = "None";
