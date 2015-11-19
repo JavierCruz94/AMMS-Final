@@ -1,13 +1,12 @@
 package controles;
 import entidades.Administrador;
-// 45874585
-
 
 public class ControlAdministrador extends ControlPersona {
 	private String IDAdministrador;
 	private String ContrasenaAD;
 
 //RAWR tengo mucha hambre
+//pruebas raras de eli :D
 	public ControlAdministrador(){
 		IDAdministrador = "None";
 		ContrasenaAD = "None";
