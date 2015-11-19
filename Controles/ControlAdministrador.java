@@ -1,6 +1,7 @@
 package controles;
 import entidades.Administrador;
 // 45874585
+//87484564
 
 
 public class ControlAdministrador extends ControlPersona {
