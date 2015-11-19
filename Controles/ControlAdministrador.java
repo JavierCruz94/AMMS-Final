@@ -1,5 +1,11 @@
 package controles;
 import entidades.Administrador;
+<<<<<<< HEAD
+=======
+// 45874585
+//87484564
+
+>>>>>>> origin/master
 
 public class ControlAdministrador extends ControlPersona {
 	private String IDAdministrador;
