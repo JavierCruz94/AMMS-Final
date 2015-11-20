@@ -3,15 +3,7 @@ import java.sql.*;
 import java.io.*;
 import controles.*;
 
-//Se agregó sólo para prueba
-import javax.servlet.*;
-import javax.servlet.http.*;
-import java.util.*;
-
-public class Usuario extends HttpServlet{
-PrintWriter out;
-
-
+public class Usuario {
    Connection conn;
    Statement stmt;
    String idusuario/* = "DEFAULT2"*/;

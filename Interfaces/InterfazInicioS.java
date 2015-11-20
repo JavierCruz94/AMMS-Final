@@ -43,16 +43,16 @@ import controles.ControlAdministrador;
 
   public void IniciarSesionPagina(){
   out.println("<p>Ingrese su matricula</p>");
+
+
   out.println("<form method=\"GET\" action=\"InicioS\">");
   out.println("<input type=\"hidden\" name=\"operacion\" value=\"validar\"/>");
   out.println("<p> Cuenta  <input type=\"text\" name=\"cuentaP\" size=\"15\"></p>");
   out.println("<p><input type=\"submit\" value=\"Enviar\"></p>");
   out.println("</form>");
-
   out.println("<form method=\"GET\" action=\"index.html\">");
   out.println("<p><input type=\"submit\" value=\"Cancelar\"></p>");
   out.println("</form>");
-
   out.println("</BODY>");
   out.println("</HTML>");
 }
@@ -71,11 +71,11 @@ public void validarCuenta(){
 
 public void IniciaSesion(){
 
-  out.println("<p>Logre iniciar sesion!!!</p>");
-  out.println("<p>Fue un placer servirlo. Gracias por operar con nuestro banco.</p>");
+  out.println("<HEAD>Acciones</HEAD>");
+  out.println("<p>Bienvenido!</p>");
   out.println("<p>Presione el boton para terminar.</p>");
-  out.println("<form method=\"GET\" action=\"index.html\">");
-  out.println("<p><input type=\"submit\" value=\"Terminar\"name=\"B1\"></p>");
+  out.println("<form method=\"GET\" action=\"menu.html\">");
+  out.println("<p><input type=\"submit\" value=\"Continuar\"name=\"B1\"></p>");
   out.println("</form>");
   out.println("</BODY>");
   out.println("</HTML>");

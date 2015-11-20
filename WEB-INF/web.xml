@@ -19,7 +19,32 @@
         <url-pattern>/InicioS</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+      <servlet-name>ConsultarProyecto</servlet-name>
+      <servlet-class>interfaces.InterfazConsultarProyecto</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ConsultarProyecto</servlet-name>
+        <url-pattern>/ConsultarProyecto</url-pattern>
+    </servlet-mapping>
 
+    <servlet>
+      <servlet-name>Mapeo</servlet-name>
+      <servlet-class>interfaces.InterfazMapeo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Mapeo</servlet-name>
+        <url-pattern>/Mapeo</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+      <servlet-name>RegistrarProyecto</servlet-name>
+      <servlet-class>interfaces.InterfazRegistrarProyecto</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegistrarProyecto</servlet-name>
+        <url-pattern>/RegistrarProyecto</url-pattern>
+    </servlet-mapping>
 
 <!--
 <servlet>
