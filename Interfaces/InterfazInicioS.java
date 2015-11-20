@@ -28,7 +28,7 @@ import controles.ControlAdministrador;
     out.println("<META http-equiv=Content-Type content=\"text/html\">");
     out.println("</HEAD>");
     out.println("<BODY>");
-    out.println("<TITLE>Viculacion Academica</TITLE>");
+    out.println("<TITLE>Vinculacion Academica</TITLE>");
     out.println("<h2>Mapeo y registro de proyectos</h2>");
     out.println("<h3>Inicio sesion</h3>");
     //out.println("<p>Esta opci�n no esta disponible por el momento.</p>");
@@ -64,7 +64,7 @@ public void validarCuenta(){
   if (existe){
      IniciaSesion();
   } else {
-    out.println("<p>Ingrese matricula denuvo</p>");
+    out.println("<p>Ingrese matricula de nuevo</p>");
      IniciarSesionPagina();
   }
 }

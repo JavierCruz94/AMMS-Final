@@ -3,10 +3,18 @@ import java.sql.*;
 import java.io.*;
 import controles.*;
 
-public class Usuario  {
+//Se agregó sólo para prueba
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.util.*;
+
+public class Usuario extends HttpServlet{
+PrintWriter out;
+
+
    Connection conn;
    Statement stmt;
-   String idusuario = "DEFAULT2";
+   String idusuario/* = "DEFAULT2"*/;
 
    public Usuario(){
       try {
@@ -21,14 +29,17 @@ public class Usuario  {
 
    public boolean validarUsuario(String idE){
       try {
-         stmt.executeQuery ("SELECT IDUsuario FROM usuario WHERE IDUsuario = \'"+ idE+ "\'" );
+        idusuario = "";
+         stmt.executeQuery ("SELECT `ID-Usuario` FROM usuario WHERE `ID-Usuario` = '"+ idE+ "'" );
          ResultSet rs = stmt.getResultSet();
          if (rs.next()) { //Va al primer registro si lo hay
-            idusuario= rs.getString ("IDUsuario");
+            idusuario= rs.getString ("ID-Usuario");
             rs.close();
             return(true);
-         }else{ return false;}
-      } catch (SQLException e) {}
+         }
+      } catch (SQLException e) { }
+
+
       return false;
    }
 /*
