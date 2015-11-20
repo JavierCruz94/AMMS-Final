@@ -49,7 +49,7 @@ import controles.ControlAdministrador;
   out.println("<p><input type=\"submit\" value=\"Enviar\"></p>");
   out.println("</form>");
 
-  out.println("<form method=\"GET\" action=\"menu.html\">");
+  out.println("<form method=\"GET\" action=\"index.html\">");
   out.println("<p><input type=\"submit\" value=\"Cancelar\"></p>");
   out.println("</form>");
 
