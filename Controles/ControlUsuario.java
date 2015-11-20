@@ -5,7 +5,7 @@ public class ControlUsuario extends ControlPersona{
 	private boolean Privilegio;
 	private String IDUsuario;
 	private String Contrasena;
-	private Usuario usuario;
+	Usuario usuario;
 
 
 
@@ -13,14 +13,16 @@ public class ControlUsuario extends ControlPersona{
 		Privilegio = false;
 		IDUsuario = "None";
 		Contrasena = "None";
+		usuario = new Usuario();
 	}
 
 	public ControlUsuario(String IDPer, String Nom, String ApellidoMat,
 		String ApellidoPat, int Ed, boolean Pr, String IDUsu,
-		String Cont){
+		String Cont, Usuario usu){
 		Privilegio = Pr;
 		IDUsuario = IDUsu;
 		Contrasena = Cont;
+		usuario = usu;
 	}
 
 	public boolean getPrivilegio(){

@@ -6,6 +6,7 @@ import controles.*;
 public class Usuario  {
    Connection conn;
    Statement stmt;
+   String idusuario = "DEFAULT2";
 
    public Usuario(){
       try {
@@ -20,17 +21,17 @@ public class Usuario  {
 
    public boolean validarUsuario(String idE){
       try {
-         stmt.executeQuery ("SELECT ID-Usuario FROM usuario WHERE ID-Usuario = '"+ idE + "'");
+         stmt.executeQuery ("SELECT IDUsuario FROM usuario WHERE IDUsuario = \'"+ idE+ "\'" );
          ResultSet rs = stmt.getResultSet();
          if (rs.next()) { //Va al primer registro si lo hay
-            String idUsuario = rs.getString ("ID_Usuario");
+            idusuario= rs.getString ("IDUsuario");
             rs.close();
-            return( idE == idUsuario );
+            return(true);
          }else{ return false;}
       } catch (SQLException e) {}
       return false;
    }
-
+/*
    public void agregar(String IDP, String nom, String apeM,String apeP,int edad,
     String IDU,String ContraU,String privi,String IDA){
       try {
@@ -93,5 +94,5 @@ public class Usuario  {
      } catch (SQLException e) {System.out.println ("Cannot getPrivi()" + e);}
      return IDA;
    }
-
+*/
 }

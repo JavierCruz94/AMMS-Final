@@ -7,7 +7,7 @@ import java.util.*;
 import controles.ControlUsuario;
 import controles.ControlAdministrador;
 
-public class InterfazInicioS extends HttpServlet {
+  public class InterfazInicioS extends HttpServlet {
   HttpServletResponse thisResponse;
   HttpServletRequest thisRequest;
   PrintWriter out;
@@ -33,7 +33,7 @@ public class InterfazInicioS extends HttpServlet {
     out.println("<h3>Inicio sesion</h3>");
     //out.println("<p>Esta opci�n no esta disponible por el momento.</p>");
 
-    String operacion = request.getParameter("operacion");
+  String operacion = request.getParameter("operacion");
     if(operacion == null){ // El menu nos envia un parametro para indicar el inicio de una transaccion
       IniciarSesionPagina();
     }else if(operacion.equals("validar")){
@@ -59,18 +59,19 @@ public class InterfazInicioS extends HttpServlet {
 
 public void validarCuenta(){
   cu = new ControlUsuario();
-  cuentaP = String.parseString(thisRequest.getParameter("cuentaP").trim());
-  boolean existe = cu.validarIDUsuario(cuentaP);
+  String cuenta = thisRequest.getParameter("cuentaP").trim(); //String.parseStr(thisRequest.getParameter("cuentaP").trim())
+  boolean existe = cu.validarIDUsuario(cuenta);
   if (existe){
      IniciaSesion();
   } else {
+    out.println("<p>Ingrese matricula denuvo</p>");
      IniciarSesionPagina();
   }
 }
 
 public void IniciaSesion(){
 
-  out.println("<p>logre hacer esta popo YAY!</p>");
+  out.println("<p>Logre iniciar sesion!!!</p>");
   out.println("<p>Fue un placer servirlo. Gracias por operar con nuestro banco.</p>");
   out.println("<p>Presione el boton para terminar.</p>");
   out.println("<form method=\"GET\" action=\"index.html\">");
