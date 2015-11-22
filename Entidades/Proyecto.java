@@ -17,6 +17,23 @@ public class Proyecto {
       }catch (Exception e) { System.out.println ("Cannot connect to database server"); }
    }
 
+   public void agregarProyecto (String idAdministrador, String idUsuario,
+      String institucionNacional, String nombreInstitucion, String nombreProyecto,
+      String intencionEducativa, String objetivoProyecto, String actividad,
+      int crn, int numALumnos, int areaDisciplinar, String encargado, String idProyecto) {
+     try {
+       String s = "INSERT INTO PROYECTO (IdAdministrador, IdUsuario, InstitucionNacional, " +
+       "NombreInstitucion, NombreProyecto, IntencionEducativa, ObjetivoProyecto, Actividad, " +
+       "CRN, NumALumnos, AreasDiciplina, Encargado, IdProyecto)" + " VALUES (" + idAdministrador +
+       " , " + idUsuario + " , " + institucionNacional + " , " + nombreInstitucion + " , " +
+       nombreProyecto + " , " + intencionEducativa + " , " + objetivoProyecto + " , " + actividad +
+       " , " + crn + " , " + numALumnos + " , " + areaDisciplinar + " , " + encargado + " , "
+       + idProyecto + " )";
+          System.out.println(s);
+          stmt.executeUpdate(s);
+     } catch (Exception e) { System.out.println ("Cannot update database" + e ); }
+   }
+
    public String getIdAdministrador(String idProyecto) {
      String nombre = "";
      try {
