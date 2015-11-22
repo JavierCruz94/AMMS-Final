@@ -6,6 +6,7 @@ import java.io.*;
 public class Administrador  {
    Connection conn;
    Statement stmt;
+   String idEntrante = "DEFAULT2";
 
    public Administrador(){
       try {
@@ -18,19 +19,24 @@ public class Administrador  {
       }catch (Exception e) { System.out.println ("Cannot connect to database server"); }
    }
 
-   public boolean validarIDAdministrador(String idE){
-      try {
-         stmt.executeQuery ("SELECT ID-Administrador FROM administrador WHERE ID-Administrador = '"+ idE + "'");
+   public boolean validarAdmin(String idE){
+
+     try {
+        stmt = conn.createStatement();
+         stmt.executeQuery ("SELECT `ID-Administrador` FROM administrador WHERE `ID-Administrador` = \'"+ idE+ "\'" );
          ResultSet rs = stmt.getResultSet();
          if (rs.next()) { //Va al primer registro si lo hay
-            String idAdmin = rs.getString ("ID-Administrador");
+            idEntrante= rs.getString ("ID-Administrador");
             rs.close();
-            return( idE == idAdmin );
-         }else{ return false;}
-      } catch (SQLException e) {}
-      return false;
-   }
+            return(true);
+         }
+      } catch (SQLException e) {
 
+         System.out.println("Entró al catch de la tabla administrador");
+       }
+       return false;
+     }
+     /*
    public void agregar(String IDP, String nom, String apeM,String apeP,int edad,String IDA,String ContraU){
       try {
          String s = "INSERT INTO ADMINISTRADOR (ID-Persona,ID-Administrador, ContrasenaU, Privilegio,ID-Administrador)" +
@@ -71,6 +77,6 @@ public class Administrador  {
         return(IDA);
      } catch (SQLException e) {System.out.println ("Cannot getPrivi()" + e);}
      return IDA;
-   }
+   }*/
 
 }

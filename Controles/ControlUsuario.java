@@ -25,8 +25,8 @@ public class ControlUsuario extends ControlPersona{
 		usuario = usu;
 	}
 
-	public boolean getPrivilegio(){
-		return Privilegio;
+	public boolean getPrivilegio(String id){
+		return(usuario.getPrivi(id));
 	}
 
 	public String getIDUsuario(){

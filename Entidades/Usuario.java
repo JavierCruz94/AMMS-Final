@@ -3,10 +3,11 @@ import java.sql.*;
 import java.io.*;
 import controles.*;
 
-public class Usuario {
+public class Usuario  {
    Connection conn;
    Statement stmt;
-   String idusuario/* = "DEFAULT2"*/;
+   String idEntrante = "DEFAULT";
+   int privi = 0;
 
    public Usuario(){
       try {
@@ -21,19 +22,36 @@ public class Usuario {
 
    public boolean validarUsuario(String idE){
       try {
-        idusuario = "";
-         stmt.executeQuery ("SELECT `ID-Usuario` FROM usuario WHERE `ID-Usuario` = '"+ idE+ "'" );
+        stmt = conn.createStatement();
+         stmt.executeQuery ("SELECT `ID-Usuario` FROM usuario WHERE `ID-Usuario` = \'"+ idE+ "\'");
          ResultSet rs = stmt.getResultSet();
          if (rs.next()) { //Va al primer registro si lo hay
-            idusuario= rs.getString ("ID-Usuario");
+            idEntrante= rs.getString ("ID-Usuario");
             rs.close();
             return(true);
          }
-      } catch (SQLException e) { }
+      } catch (SQLException e) {
 
-
+        System.out.println("Entró al catch de la tabla usuario");
+      }
       return false;
    }
+
+   public boolean getPrivi(String idE){
+     try {
+        stmt.executeQuery ("SELECT Privilegio FROM usuario WHERE `ID-Usuario` =  \'"+ idE+ "\'");
+        ResultSet rs = stmt.getResultSet();
+        rs.next(); //Va al registro ya validado
+        privi = rs.getInt("Privilegio");
+        rs.close();
+        if(privi == 1){
+            return(true);
+        }
+        return false;
+     } catch (SQLException e) {System.out.println ("Cannot getPrivi()" + e);}
+     return false;
+   }
+
 /*
    public void agregar(String IDP, String nom, String apeM,String apeP,int edad,
     String IDU,String ContraU,String privi,String IDA){

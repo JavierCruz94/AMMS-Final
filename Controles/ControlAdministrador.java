@@ -4,10 +4,12 @@ import entidades.Administrador;
 public class ControlAdministrador extends ControlPersona {
 	private String IDAdministrador;
 	private String ContrasenaAD;
+	Administrador admin;
 
 	public ControlAdministrador(){
 		IDAdministrador = "None";
 		ContrasenaAD = "None";
+		admin = new Administrador();
 	}
 
 	public ControlAdministrador(String IDPer, String Nom, String ApellidoMat,
@@ -23,8 +25,6 @@ public class ControlAdministrador extends ControlPersona {
 	public String getContrasenaAD(){
 		return ContrasenaAD;
 	}
-
-
 	public void setIDAdministrador(String IDAdmin){
 		IDAdministrador = IDAdmin;
 	}
@@ -32,4 +32,7 @@ public class ControlAdministrador extends ControlPersona {
 	public void setContrasena(String ContA){
 		ContrasenaAD = ContA;
 	}
+	public boolean validarIDAdministrador(String id){
+			return(admin.validarAdmin(id));
+	 }
 }
