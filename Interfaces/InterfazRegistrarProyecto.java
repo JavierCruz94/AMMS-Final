@@ -83,11 +83,17 @@ import controles.ControlAdministrador;
       int areaDisciplinar = Integer.parseInt(thisRequest.getParameter("areaDi").trim());
       String encargado = thisRequest.getParameter("enc").trim();
       String idProyecto = thisRequest.getParameter("idProy").trim();
-      cp.agregarProy(idAdministrador, idUsuario, instNacional, nombreInstitucion, nombreProyecto, intencionEducativa, objetivoProyecto, actividad, intC, numAlumnos, areaDisciplinar, encargado, idProyecto);
 
-      out.println("<form method=\"GET\" action=\"menuPrivi.html\">");
-      out.println("<h2> Proyecto agregado!</h2>");
-      out.println("<button class=\"btn btn-danger \"type=\"submit\">Terminar</button>");
-      out.println("</form>");
+      boolean valido = cp.validarProyecto(idProyecto);
+      if (valido) {
+        cp.agregarProy(idAdministrador, idUsuario, instNacional, nombreInstitucion, nombreProyecto, intencionEducativa, objetivoProyecto, actividad, intC, numAlumnos, areaDisciplinar, encargado, idProyecto);
+        out.println("<form method=\"GET\" action=\"menuPrivi.html\">");
+        out.println("<h2> Proyecto agregado!</h2>");
+        out.println("<button class=\"btn btn-danger \"type=\"submit\">Terminar</button>");
+        out.println("</form>");
+      } else {
+        out.println("<h3>Ya existe un proyecto con ese ID, ingresa otro</h3>");
+         iniciarRegistroP();
       }
+    }
 }

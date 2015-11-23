@@ -68,7 +68,7 @@ public void validarCuenta(){
   if (cu.validarIDUsuario(cuenta) || ca.validarIDAdministrador(cuenta)){
      IniciaSesion();
   } else {
-    out.println("<p>Ingrese matricula denuvo</p>");
+    out.println("<p>Ingrese matricula de nuevo</p>");
      IniciarSesionPagina();
   }
 }
@@ -78,7 +78,6 @@ public void IniciaSesion(){
   ca = new ControlAdministrador();
   String cuenta = thisRequest.getParameter("cuentaP").trim();
 
-  out.println("<HEAD>Acciones</HEAD>");
   out.println("<p>Bienvenido!</p>");
   out.println("<p>Presione el boton para continuar.</p>");
   if(ca.validarIDAdministrador(cuenta)){

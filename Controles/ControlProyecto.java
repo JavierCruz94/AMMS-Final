@@ -32,23 +32,12 @@ public class ControlProyecto {
     }
 
     public void agregarProy (String strAdmin, String strUsu, String strIns, String strNomInst, String strNomPro, String strInt, String strObj, String strAct, int intC, int intNumAl, int intAreas, String strEnc, String strId) {
-          proyecto.agregarProyecto(strAdmin, strUsu, strIns, strNomInst, strNomPro, strInt, strObj, strAct, intC, intNumAl, intAreas, strEnc, strId);
-        }
-  /*  public ControlProyecto(String strIns, String strNomInst, String strNomPro, String strInt,
-      String strObj, String strAct, int intC, int intNumAl, int intAreas,
-      String strEnc, String strId) {
-        institucionNacional = strIns;
-        nombreInstitucion = strNomInst;
-        nombreProyecto = strNomPro;
-        intencionEducativa = strInt;
-        objetivoProyecto = strObj;
-        actividades = strAct;
-        CRN = intC;
-        numAlumnosIn = intNumAl;
-        areasDiciplinar = intAreas;
-        encargado = strEnc;
-        idProyecto = strId;
-    }*/
+      proyecto.agregarProyecto(strAdmin, strUsu, strIns, strNomInst, strNomPro, strInt, strObj, strAct, intC, intNumAl, intAreas, strEnc, strId);
+    }
+
+    public boolean validarProyecto(String idPro) {
+      return proyecto.validarProyecto(idPro);
+    }
 
     public String getIdAdmin(String idPro) {
       return proyecto.getIdAdministrador(idPro);

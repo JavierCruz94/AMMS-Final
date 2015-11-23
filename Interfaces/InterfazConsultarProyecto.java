@@ -61,6 +61,12 @@ import controles.ControlProyecto;
       cp = new ControlProyecto();
       String idProyecto = thisRequest.getParameter("idProy").trim();
 
+      boolean existe = cp.validarProyecto(idProyecto);
+      System.out.println(existe);
+      if (existe) {
+        out.println("<h3> No hay proyectos con ese ID, ingrese otro</h3>");
+        iniciarConsultaP();
+      } else {
       String idAdministrador = cp.getIdAdmin(idProyecto);
       String idUsuario = cp.getIdUsu(idProyecto);
       String instNacional = cp.getInstitucionNacional(idProyecto);
@@ -74,9 +80,8 @@ import controles.ControlProyecto;
       int areaDisciplinar = cp.getAreasDiciplinar(idProyecto);
       String encargado = cp.getEncargado(idProyecto);
 
-
       out.println("<form method=\"GET\" action=\"index.html\">");
-      out.println("<h2> Proyecto con ID " + idProyecto + "</h2>");
+      out.println("<h3> Proyecto con ID " + idProyecto + "</h3>");
       out.println("<p> ID administrador: " + idAdministrador + "</p>");
       out.println("<p> ID usuario: " + idUsuario + "</p>");
       out.println("<p> InstitucionNacional: " + instNacional + "</p>");
@@ -91,7 +96,6 @@ import controles.ControlProyecto;
       out.println("<form method=\"GET\" action=\"menuPrivi.html\">");
       out.println("<button class=\"btn btn-danger \"type=\"submit\">Cancelar</button>");
       out.println("</form>");
-      }
-
-
+    }
+  }
 }

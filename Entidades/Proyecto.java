@@ -5,6 +5,7 @@ import java.io.*;
 public class Proyecto {
    Connection conn;
    Statement stmt;
+    String idEntrante = "DEFAULT";
 
    public Proyecto(){
       try {
@@ -33,6 +34,23 @@ public class Proyecto {
           stmt.executeUpdate(s);
      } catch (Exception e) { System.out.println ("Cannot update database" + e ); }
    }
+
+   public boolean validarProyecto(String idProy){
+     try {
+       stmt = conn.createStatement();
+        stmt.executeQuery ("SELECT IdProyecto FROM proyecto WHERE IdProyecto = \'"+ idProy+ "\'");
+        ResultSet rs = stmt.getResultSet();
+        if (rs.next()) { //Va al primer registro si lo hay
+           idEntrante= rs.getString ("IdProyecto");
+           rs.close();
+           return(false);
+        }
+     } catch (SQLException e) {
+
+       System.out.println("Entró al catch de la tabla proyecto");
+     }
+     return true;
+  }
 
    public String getIdAdministrador(String idProyecto) {
      String nombre = "";
