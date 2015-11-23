@@ -1,10 +1,13 @@
 package controles;
+import entidades.Persona;
+
 public class ControlPersona{
 	private String IDPersona;
 	private String Nombre;
 	private String ApellidoMaterno;
 	private String ApellidoPaterno;
 	private int Edad;
+	Persona persona;
 
 	public ControlPersona(){
 		IDPersona = "None";
@@ -12,6 +15,7 @@ public class ControlPersona{
 		ApellidoMaterno = "None";
 		ApellidoPaterno = "None";
 		Edad = 0;
+		persona = new Persona();
 	}
 
 	public ControlPersona(String IDPer, String Nom, String ApellidoMat,
@@ -61,6 +65,10 @@ public class ControlPersona{
 
 	public void setEdad(int Ed){
 		Edad = Ed;
+	}
+
+	public boolean validarIDPersona(String id){
+		return(persona.validarPersona(id));
 	}
 
 }

@@ -8,6 +8,7 @@ public class Usuario  {
    Statement stmt;
    String idEntrante = "DEFAULT";
    int privi = 0;
+  // String idP,idU,;
 
    public Usuario(){
       try {
@@ -39,7 +40,7 @@ public class Usuario  {
 
    public boolean getPrivi(String idE){
      try {
-        stmt.executeQuery ("SELECT Privilegio FROM usuario WHERE `ID-Usuario` =  \'"+ idE+ "\'");
+        stmt.executeQuery ("SELECT Privilegio FROM usuario WHERE `ID-Usuario` =  \'"+ idE + "\'");
         ResultSet rs = stmt.getResultSet();
         rs.next(); //Va al registro ya validado
         privi = rs.getInt("Privilegio");
@@ -52,16 +53,15 @@ public class Usuario  {
      return false;
    }
 
-/*
-   public void agregar(String IDP, String nom, String apeM,String apeP,int edad,
-    String IDU,String ContraU,String privi,String IDA){
+   public void agregarUsuario(String idP, String idU, String idA, String contraU, int privi){
       try {
-         String s = "INSERT INTO USUARIO (ID-Persona,ID-Usuario, ContrasenaU, Privilegio,ID-Administrador)" +
-                   " VALUES ("+ IDP + " , '" + IDU + "', " + ContraU + "'," + privi + "'," + IDA + " )";
+         String s = "INSERT INTO USUARIO (`ID-Persona`,`ID-Usuario`, ContrasenaU, Privilegio,`ID-Administrador`)" +
+                   " VALUES ('"+ idP + "' , '" + idU + "', '" + contraU + "', " + privi + ", '" + idA + "' )";
          System.out.println(s);
          stmt.executeUpdate(s);
       }catch (Exception e) { System.out.println ("Cannot update database" + e ); }
    }
+/*
 
    public void setContraU(String IDU ,String ContraU){
       try {

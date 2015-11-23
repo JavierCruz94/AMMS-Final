@@ -1,14 +1,14 @@
-
+package entidades;
 import java.sql.*;
 import java.io.*;
 
 public class Persona{
-	private String IDPersona;
+	private String IDPersona = "DEFAULT";
 	private String Nombre;
 	private String ApellidoMaterno;
 	private String ApellidoPaterno;
 	private int Edad;
-
+	String idEntrante = "DEFAULT";
 	Connection conn;
 	Statement stmt;
 
@@ -25,17 +25,21 @@ public class Persona{
 		 }catch (Exception e) { System.out.println ("Cannot connect to database server"); }
 	}
 
-	public boolean validar(String id){
-		 try {
-				stmt.executeQuery ("SELECT ID-Persona FROM Persona WHERE ID-Persona = '" + id + "'");
-				ResultSet rs = stmt.getResultSet();
-				if (rs.next()) { //Va al primer registro si lo hay
-					 String idPersona = rs.getString("ID-Persona");
-					 rs.close();
-					 return( id == idPersona );
-				}else{ return false;}
-		 } catch (SQLException e) {}
-		 return false;
+	public boolean validarPersona(String idE){
+		try {
+			stmt = conn.createStatement();
+			 stmt.executeQuery ("SELECT `ID-Persona` FROM persona WHERE `ID-Persona` = \'"+ idE + "\'");
+			 ResultSet rs = stmt.getResultSet();
+			 if (rs.next()) { //Va al primer registro si lo hay
+					idEntrante= rs.getString ("ID-Persona");
+					rs.close();
+					return(true);
+			 }
+		} catch (SQLException e) {
+
+			System.out.println("Entró al catch de la tabla persona");
+		}
+		return false;
 	}
 
 	public void agregar(String id, String nombre, String apellidoPat, String apellidoMat, int edad){

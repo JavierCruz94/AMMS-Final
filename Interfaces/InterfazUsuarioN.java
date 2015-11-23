@@ -6,13 +6,17 @@ import java.io.*;
 import java.util.*;
 import controles.ControlUsuario;
 import controles.ControlAdministrador;
+import controles.ControlPersona;
 
   public class InterfazUsuarioN extends HttpServlet {
   HttpServletResponse thisResponse;
   HttpServletRequest thisRequest;
   PrintWriter out;
-  ControlUsuario cu;
+  ControlUsuario cu,cu2;
   ControlAdministrador ca;
+  ControlPersona cp;
+  String cuentaPer, cuentaPri, cuentaPriA, cuentaUsu, contra;
+  int priviU;
 
    public void doGet(HttpServletRequest request,
         HttpServletResponse response)
@@ -37,7 +41,7 @@ import controles.ControlAdministrador;
     if(operacion == null){ // El menu nos envia un parametro para indicar el inicio de una transaccion
       IniciarUsuarioNuevo();
     }else if(operacion.equals("usuarioNuevo")){
-       //validarDatos();
+       validarDatos();
     }
   }
 
@@ -47,11 +51,10 @@ import controles.ControlAdministrador;
   out.println("<form method=\"GET\" action=\"UsuarioN\">");
   out.println("<input type=\"hidden\" name=\"operacion\" value=\"usuarioNuevo\"/>");
   out.println("<p> Ingrese su ID <input type=\"text\" name=\"cuentaPrivi\" size=\"15\"></p>");
-  out.println("<p> Ingrese su ID de la persona <input type=\"text\" name=\"cuentaUsuario\" size=\"15\"></p>");
-  out.println("<p> Ingrese su ID de nuevo usario <input type=\"text\" name=\"cuentaUsuario\" size=\"15\"></p>");
+  out.println("<p> Ingrese ID de la persona <input type=\"text\" name=\"cuentaPersona\" size=\"15\"></p>");
+  out.println("<p> Ingrese ID de nuevo usario <input type=\"text\" name=\"cuentaUsuario\" size=\"15\"></p>");
   out.println("<p> Ingrese contrasena <input type=\"text\" name=\"contraU\" size=\"15\"></p>");
-  out.println("<p> Privilegio (si = 1, no = 0)<input type=\"text\" name=\"cuentaP\" size=\"15\"></p>");
-  out.println("<p> Ingrese su ID <input type=\"text\" name=\"cuentaP\" size=\"15\"></p>");
+  out.println("<p> Privilegio (si = 1, no = 0)<input type=\"text\" name=\"privi\" size=\"15\"></p>");
   out.println("<p><input type=\"submit\" value=\"Enviar\"></p>");
   out.println("</form>");
 
@@ -63,7 +66,50 @@ import controles.ControlAdministrador;
   out.println("</HTML>");
 }
 
-/*public void validarDatos(){
+public void validarDatos(){
+    ca = new ControlAdministrador();
+    cu2 = new ControlUsuario();
+    cu = new ControlUsuario();
+    cp = new ControlPersona();
+    cuentaPri = thisRequest.getParameter("cuentaPrivi").trim();
+    cuentaPriA = thisRequest.getParameter("cuentaPrivi").trim();
+    cuentaUsu = thisRequest.getParameter("cuentaUsuario").trim();
+    cuentaPer = thisRequest.getParameter("cuentaPersona").trim();
+    contra = thisRequest.getParameter("contraU").trim();
+    priviU= Integer.parseInt(thisRequest.getParameter("privi").trim());
 
-}*/
+    if(!cu.validarIDUsuario(cuentaUsu) && cp.validarIDPersona(cuentaPer)&&(ca.validarIDAdministrador(cuentaPriA)|| cu2.getPrivilegio(cuentaPri))){
+      out.println("<p>Usuario registrado exitosamente</p>");
+      out.println("<p>ID de usuario: " + cuentaUsu + " </p>");
+      out.println("<p>Contrasena de usuario: " + contra + " </p>");
+      if(ca.validarIDAdministrador(cuentaPriA)){
+          out.println("<p>Agregado por: " + cuentaPriA + " </p>");
+      }
+      else{
+        out.println("<p>Agregado por: "+ cuentaPri + " </p>" );
+      }
+      if(ca.validarIDAdministrador(cuentaPriA)){
+        cu.agregarUsuarioDB(cuentaPer, cuentaUsu, cuentaPriA, contra, priviU);
+      }
+      else{
+        cu.agregarUsuarioDB(cuentaPer, cuentaUsu, cuentaPri, contra, priviU);
+      }
+    }
+    else{
+      if(cu.validarIDUsuario(cuentaUsu)){
+        out.println("<p>Usuario ya existe</p>");
+      }
+      if(!cp.validarIDPersona(cuentaPer)){
+        out.println("<p>Persona no existe no se puede dar de alta como usuario</p>");
+      }
+      if(!(ca.validarIDAdministrador(cuentaPriA)|| cu2.getPrivilegio(cuentaPri))){
+        out.println("<p>ID no autorizado para dar de alta usuarios</p>");
+      }
+      IniciarUsuarioNuevo();
+    }
+    out.println("</form>");
+    out.println("</BODY>");
+    out.println("</HTML>");
+
+  }
 }

@@ -53,4 +53,8 @@ public class ControlUsuario extends ControlPersona{
 	public boolean validarIDUsuario(String id){
       return(usuario.validarUsuario(id));
    }
+
+	 public void agregarUsuarioDB(String idP, String idU, String idA, String contraU, int privi){
+		 usuario.agregarUsuario(idP,idU,idA,contraU,privi);
+	 }
 }

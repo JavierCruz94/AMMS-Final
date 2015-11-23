@@ -13,7 +13,7 @@ import controles.ControlAdministrador;
   PrintWriter out;
   ControlUsuario cu;
   ControlAdministrador ca;
-  String cuenta;
+  //String cuentaP;
 
    public void doGet(HttpServletRequest request,
         HttpServletResponse response)
@@ -61,7 +61,7 @@ import controles.ControlAdministrador;
 public void validarCuenta(){
   cu = new ControlUsuario();
   ca = new ControlAdministrador();
-  cuenta = thisRequest.getParameter("cuentaP").trim(); //String.parseStr(thisRequest.getParameter("cuentaP").trim())
+  String cuenta = thisRequest.getParameter("cuentaP").trim(); //String.parseStr(thisRequest.getParameter("cuentaP").trim())
   boolean existe = cu.validarIDUsuario(cuenta);
   if (cu.validarIDUsuario(cuenta) || ca.validarIDAdministrador(cuenta)){
      IniciaSesion();
@@ -74,6 +74,7 @@ public void validarCuenta(){
 public void IniciaSesion(){
   cu = new ControlUsuario();
   ca = new ControlAdministrador();
+  String cuenta = thisRequest.getParameter("cuentaP").trim();
 
   out.println("<HEAD>Acciones</HEAD>");
   out.println("<p>Bienvenido!</p>");
