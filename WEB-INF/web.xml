@@ -46,6 +46,15 @@
         <url-pattern>/RegistrarProyecto</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+      <servlet-name>UsuarioN</servlet-name>
+      <servlet-class>interfaces.InterfazUsuarioN</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UsuarioN</servlet-name>
+        <url-pattern>/UsuarioN</url-pattern>
+    </servlet-mapping>
+
 <!--
 <servlet>
     <servlet-name>HelloWorld</servlet-name>
