@@ -38,8 +38,8 @@ public class ControlUsuario extends ControlPersona{
 	}
 
 
-	public void setPrivilegio(boolean Privi){
-		Privilegio = Privi;
+	public void setPrivilegio(String cuenta,int privi){
+		usuario.setPrivilegio(cuenta,privi);
 	}
 
 	public void setIDUsuario(String IDUsu){

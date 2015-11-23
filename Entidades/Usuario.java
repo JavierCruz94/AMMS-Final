@@ -61,6 +61,13 @@ public class Usuario  {
          stmt.executeUpdate(s);
       }catch (Exception e) { System.out.println ("Cannot update database" + e ); }
    }
+
+   public void setPrivilegio(String idE ,int privi){
+      try {
+         String s = "UPDATE usuario SET Privilegio = "+ privi + " WHERE IdUsuario =  \'"+ idE+ "\'";
+         stmt.executeUpdate(s);
+      } catch (SQLException e) {System.out.println ("Cannot execute disposicion()" + e);}
+   }
 /*
 
    public void setContraU(String IDU ,String ContraU){

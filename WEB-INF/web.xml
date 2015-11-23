@@ -64,6 +64,14 @@
         <url-pattern>/CerrarS</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+      <servlet-name>CambioP</servlet-name>
+      <servlet-class>interfaces.InterfazCambioPrivi</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CambioP</servlet-name>
+        <url-pattern>/CambioP</url-pattern>
+    </servlet-mapping>
 <!--
 <servlet>
     <servlet-name>HelloWorld</servlet-name>
