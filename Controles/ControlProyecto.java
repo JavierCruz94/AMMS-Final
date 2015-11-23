@@ -1,6 +1,9 @@
 package controles;
+import entidades.Proyecto;
+
 public class ControlProyecto {
-  private String institucionNacional;
+  Proyecto proyecto;
+  /*private String institucionNacional;
   private String nombreInstitucion;
   private String nombreProyecto;
   private String intencionEducativa;
@@ -10,11 +13,12 @@ public class ControlProyecto {
   private int numAlumnosIn;
   private int areasDiciplinar;
   private String encargado;
-  private String idProyecto;
+  private String idProyecto;*/
 
 
     public ControlProyecto() {
-      institucionNacional = "None";
+      proyecto = new Proyecto();
+    /*  institucionNacional = "None";
       nombreInstitucion = "None";
       nombreProyecto = "None";
       intencionEducativa = "None";
@@ -24,10 +28,13 @@ public class ControlProyecto {
       numAlumnosIn = 0;
       areasDiciplinar = 0;
       encargado = "None";
-      idProyecto = "None";
+      idProyecto = "None";*/
     }
 
-    public ControlProyecto(String strIns, String strNomInst, String strNomPro, String strInt,
+    public void agregarProy (String strAdmin, String strUsu, String strIns, String strNomInst, String strNomPro, String strInt, String strObj, String strAct, int intC, int intNumAl, int intAreas, String strEnc, String strId) {
+          proyecto.agregarProyecto(strAdmin, strUsu, strIns, strNomInst, strNomPro, strInt, strObj, strAct, intC, intNumAl, intAreas, strEnc, strId);
+        }
+  /*  public ControlProyecto(String strIns, String strNomInst, String strNomPro, String strInt,
       String strObj, String strAct, int intC, int intNumAl, int intAreas,
       String strEnc, String strId) {
         institucionNacional = strIns;
@@ -41,93 +48,93 @@ public class ControlProyecto {
         areasDiciplinar = intAreas;
         encargado = strEnc;
         idProyecto = strId;
+    }*/
+
+    public String getInstitucionNacional(String idPro) {
+      return proyecto.getInstitucionNacional(idPro);
     }
 
-    public String getInstitucionNacional() {
-      return institucionNacional;
+    public String getNombreInstitucion(String idPro) {
+      return proyecto.getNombreInstitucion(idPro);
     }
 
-    public String getNombreInstitucion() {
-      return nombreInstitucion;
+    public String getNombreProyecto(String idPro) {
+      return proyecto.getNombreProyecto(idPro);
     }
 
-    public String getNombreProyecto() {
-      return nombreProyecto;
+    public String getIntencionEducativa(String idPro) {
+      return proyecto.getIntencionEducativa(idPro);
     }
 
-    public String getIntencionEducativa() {
-      return intencionEducativa;
+    public String getObjetivoProyecto(String idPro) {
+      return proyecto.getObjetivoProyecto(idPro);
     }
 
-    public String getObjetivoProyecto() {
-      return objetivoProyecto;
+    public String getActividades(String idPro) {
+      return proyecto.getActividades(idPro);
     }
 
-    public String getActividades() {
-      return actividades;
+    public int getCRN(String idPro) {
+      return proyecto.getCRN(idPro);
     }
 
-    public int getCRN() {
-      return CRN;
+    public int getNumAlumnosIn(String idPro) {
+      return proyecto.getNumAlumnosIn(idPro);
     }
 
-    public int getNumAlumnosIn() {
-      return numAlumnosIn;
+    public int getAreasDiciplinar(String idPro) {
+      return proyecto.getAreasDiciplinar(idPro);
     }
 
-    public int getAreasDiciplinar() {
-      return areasDiciplinar;
+    public String getEncargado(String idPro) {
+      return proyecto.getEncargado(idPro);
     }
 
-    public String getEncargado() {
-      return encargado;
+    public String getIdProyecto(String idPro) {
+      return proyecto.getIdProyecto(idPro);
     }
 
-    public String getIdProyecto() {
-      return idProyecto;
+    public void setInstitucionNacional(String idPro, String strIns) {
+      proyecto.setInstitucionNacional(idPro, strIns);
+    }
+    public void setNombreInstitucion (String idPro, String strNomInst) {
+      proyecto.setNombreInstitucion(idPro, strNomInst);
     }
 
-    public void setInstitucionNacional(String strIns) {
-      institucionNacional = strIns;
-    }
-    public void setNombreInstitucion (String strNomInst) {
-      nombreInstitucion = strNomInst;
+    public void setNombreProyecto (String idPro, String strNomPro) {
+      proyecto.setNombreProyecto(idPro, strNomPro);
     }
 
-    public void setNombreProyecto (String strNomPro) {
-      nombreProyecto = strNomPro;
+    public void setIntencionEducativa (String idPro, String strInt) {
+      proyecto.setIntencionEducativa(idPro, strInt);
     }
 
-    public void setIntencionEducativa (String strInt) {
-      intencionEducativa = strInt;
+    public void setObjetivoProyecto (String idPro, String strObj) {
+      proyecto.setObjetivoProyecto(idPro, strObj);
     }
 
-    public void setObjetivoProyecto (String strObj) {
-      objetivoProyecto = strObj;
+    public void setActividades (String idPro, String strAct) {
+      proyecto.setActividades(idPro, strAct);
     }
 
-    public void setActividades (String strAct) {
-      actividades = strAct;
+    public void setCRN (String idPro, int intC) {
+      proyecto.setCRN(idPro, intC);
     }
 
-    public void setCRN (int intC) {
-      CRN = intC;
+    public void setNumAlumnosIn (String idPro, int intNumAl) {
+      proyecto.setNumAlumnosIn(idPro, intNumAl);
     }
 
-    public void setNumAlumnosIn (int intNumAl) {
-      numAlumnosIn = intNumAl;
+    public void setAreasDiciplinar (String idPro, int intAreas) {
+      proyecto.setAreasDiciplinar(idPro, intAreas);
     }
 
-    public void setAreasDiciplinar (int intAreas) {
-      areasDiciplinar = intAreas;
+    public void setEncargado (String idPro, String strEnc) {
+      proyecto.setEncargado(idPro, strEnc);
     }
 
-    public void setEncargado (String strEnc) {
-      encargado = strEnc;
-    }
-
-    public void setIdProyecto (String strId) {
-      idProyecto = strId;
+    public void setIdProyecto (String idPro, String strId) {
+      proyecto.setIdProyecto(idPro, strId);
     }
 
 }
