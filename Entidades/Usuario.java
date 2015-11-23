@@ -24,10 +24,10 @@ public class Usuario  {
    public boolean validarUsuario(String idE){
       try {
         stmt = conn.createStatement();
-         stmt.executeQuery ("SELECT `ID-Usuario` FROM usuario WHERE `ID-Usuario` = \'"+ idE+ "\'");
+         stmt.executeQuery ("SELECT IdUsuario FROM usuario WHERE IdUsuario = \'"+ idE+ "\'");
          ResultSet rs = stmt.getResultSet();
          if (rs.next()) { //Va al primer registro si lo hay
-            idEntrante= rs.getString ("ID-Usuario");
+            idEntrante= rs.getString ("IdUsuario");
             rs.close();
             return(true);
          }
@@ -40,7 +40,7 @@ public class Usuario  {
 
    public boolean getPrivi(String idE){
      try {
-        stmt.executeQuery ("SELECT Privilegio FROM usuario WHERE `ID-Usuario` =  \'"+ idE + "\'");
+        stmt.executeQuery ("SELECT Privilegio FROM usuario WHERE IdUsuario =  \'"+ idE + "\'");
         ResultSet rs = stmt.getResultSet();
         rs.next(); //Va al registro ya validado
         privi = rs.getInt("Privilegio");
@@ -55,7 +55,7 @@ public class Usuario  {
 
    public void agregarUsuario(String idP, String idU, String idA, String contraU, int privi){
       try {
-         String s = "INSERT INTO USUARIO (`ID-Persona`,`ID-Usuario`, ContrasenaU, Privilegio,`ID-Administrador`)" +
+         String s = "INSERT INTO USUARIO (IdPersona,IdUsuario, ContrasenaU, Privilegio,IdAdministrador)" +
                    " VALUES ('"+ idP + "' , '" + idU + "', '" + contraU + "', " + privi + ", '" + idA + "' )";
          System.out.println(s);
          stmt.executeUpdate(s);

@@ -26,6 +26,8 @@ import controles.ControlProyecto;
     out.println("<HTML>");
     out.println("<HEAD>");
     out.println("<META http-equiv=Content-Type content=\"text/html\">");
+    out.println("<link rel=stylesheet href=css/bootstrap.min.css>");
+    out.println("<link rel=stylesheet href=style.css>");
     out.println("</HEAD>");
     out.println("<BODY>");
     out.println("<TITLE>Vinculacion Academica</TITLE>");
@@ -44,11 +46,11 @@ import controles.ControlProyecto;
     out.println("<form method=\"GET\" action=\"ConsultarProyecto\">");
     out.println("<input type=\"hidden\" name=\"operacion\" value=\"consultar\"/>");
     out.println("<p> Id del Proyecto  <input type=\"text\" name=\"idProy\" size=\"15\"></p>");
-    out.println("<p><input type=\"submit\" value=\"Consultar\"name=\"B1\"></p>");
+    out.println("<button class=\"btn btn-info \"type=\"submit\">Consultar</button>");
     out.println("</form>");
 
     out.println("<form method=\"GET\" action=\"index.html\">");
-    out.println("<p><input type=\"submit\" value=\"Cancelar\"name=\"B2\"></p>");
+    out.println("<button class=\"btn btn-danger \"type=\"submit\">Cancelar</button>");
     out.println("</form>");
 
     out.println("</BODY>");
@@ -86,7 +88,8 @@ import controles.ControlProyecto;
       out.println("<p> Numero de alumnos: " + numAlumnos + "</p>");
       out.println("<p> Area diciplinar: " + areaDisciplinar + "</p>");
       out.println("<p> Encargado: " + encargado + "</p>");
-      out.println("<p><input type=\"submit\" value=\"Cancelar\"name=\"B2\"></p>");
+      out.println("<form method=\"GET\" action=\"menuPrivi.html\">");
+      out.println("<button class=\"btn btn-danger \"type=\"submit\">Cancelar</button>");
       out.println("</form>");
       }
 

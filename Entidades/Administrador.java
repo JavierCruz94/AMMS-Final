@@ -23,10 +23,10 @@ public class Administrador  {
 
      try {
         stmt = conn.createStatement();
-         stmt.executeQuery ("SELECT `ID-Administrador` FROM administrador WHERE `ID-Administrador` = \'"+ idE+ "\'" );
+         stmt.executeQuery ("SELECT IdAdministrador FROM administrador WHERE IdAdministrador = \'"+ idE+ "\'" );
          ResultSet rs = stmt.getResultSet();
          if (rs.next()) { //Va al primer registro si lo hay
-            idEntrante= rs.getString ("ID-Administrador");
+            idEntrante= rs.getString ("IdAdministrador");
             rs.close();
             return(true);
          }
@@ -39,7 +39,7 @@ public class Administrador  {
      /*
    public void agregar(String IDP, String nom, String apeM,String apeP,int edad,String IDA,String ContraU){
       try {
-         String s = "INSERT INTO ADMINISTRADOR (ID-Persona,ID-Administrador, ContrasenaU, Privilegio,ID-Administrador)" +
+         String s = "INSERT INTO ADMINISTRADOR (ID-Persona,IdAdministrador, ContrasenaU, Privilegio,IdAdministrador)" +
                    " VALUES ("+ IDP + " , '" + IDA + "', " + ContraU + " )";
          System.out.println(s);
          stmt.executeUpdate(s);
@@ -56,7 +56,7 @@ public class Administrador  {
    public String getContraU(String IDU){
      String contraUsu = "";
      try {
-        stmt.executeQuery ("SELECT ContrasenaU FROM administrador WHERE ID-Administrador = '"+ IDU+"'");
+        stmt.executeQuery ("SELECT ContrasenaU FROM administrador WHERE IdAdministrador = '"+ IDU+"'");
         ResultSet rs = stmt.getResultSet();
         rs.next(); //Va al registro ya validado
         contraUsu = rs.getString("ContrasenaU");
@@ -69,10 +69,10 @@ public class Administrador  {
    public String getAdmin(String IDU){
      String  IDA = "";
      try {
-        stmt.executeQuery ("SELECT ID-Administrador FROM administrador WHERE ID-Administrador ='"+ IDU+"'");
+        stmt.executeQuery ("SELECT IdAdministrador FROM administrador WHERE IdAdministrador ='"+ IDU+"'");
         ResultSet rs = stmt.getResultSet();
         rs.next(); //Va al registro ya validado
-        IDA = rs.getString("ID-Administrador");
+        IDA = rs.getString("IdAdministrador");
         rs.close();
         return(IDA);
      } catch (SQLException e) {System.out.println ("Cannot getPrivi()" + e);}

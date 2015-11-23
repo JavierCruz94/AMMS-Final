@@ -101,7 +101,7 @@ public class ControlProyecto {
     public String getIdProyecto(String idPro) {
       return proyecto.getIdProyecto(idPro);
     }
-
+    /*
     public void setInstitucionNacional(String idPro, String strIns) {
       proyecto.setInstitucionNacional(idPro, strIns);
     }
@@ -144,5 +144,6 @@ public class ControlProyecto {
     public void setIdProyecto (String idPro, String strId) {
       proyecto.setIdProyecto(idPro, strId);
     }
+    */
 
 }

@@ -55,6 +55,15 @@
         <url-pattern>/UsuarioN</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+      <servlet-name>CerrarS</servlet-name>
+      <servlet-class>interfaces.InterfazCerrarS</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CerrarS</servlet-name>
+        <url-pattern>/CerrarS</url-pattern>
+    </servlet-mapping>
+
 <!--
 <servlet>
     <servlet-name>HelloWorld</servlet-name>

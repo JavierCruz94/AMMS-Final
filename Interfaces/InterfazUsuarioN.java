@@ -30,6 +30,8 @@ import controles.ControlPersona;
     out.println("<HTML>");
     out.println("<HEAD>");
     out.println("<META http-equiv=Content-Type content=\"text/html\">");
+    out.println("<link rel=stylesheet href=css/bootstrap.min.css>");
+    out.println("<link rel=stylesheet href=style.css>");
     out.println("</HEAD>");
     out.println("<BODY>");
     out.println("<TITLE>Viculacion Academica</TITLE>");
@@ -55,11 +57,11 @@ import controles.ControlPersona;
   out.println("<p> Ingrese ID de nuevo usario <input type=\"text\" name=\"cuentaUsuario\" size=\"15\"></p>");
   out.println("<p> Ingrese contrasena <input type=\"text\" name=\"contraU\" size=\"15\"></p>");
   out.println("<p> Privilegio (si = 1, no = 0)<input type=\"text\" name=\"privi\" size=\"15\"></p>");
-  out.println("<p><input type=\"submit\" value=\"Enviar\"></p>");
+  out.println("<button class=\"btn btn-info \"type=\"submit\">Enviar</button>");
   out.println("</form>");
 
   out.println("<form method=\"GET\" action=\"index.html\">");
-  out.println("<p><input type=\"submit\" value=\"Cancelar\"></p>");
+  out.println("<button class=\"btn btn-danger \"type=\"submit\">Cancelar</button>");
   out.println("</form>");
 
   out.println("</BODY>");
@@ -107,6 +109,8 @@ public void validarDatos(){
       }
       IniciarUsuarioNuevo();
     }
+    out.println("<form method=\"GET\" action=\"menuPrivi.html\">");
+    out.println("<button class=\"btn btn-danger \"type=\"submit\">Terminar</button>");
     out.println("</form>");
     out.println("</BODY>");
     out.println("</HTML>");

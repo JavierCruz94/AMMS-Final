@@ -215,7 +215,7 @@ public class Proyecto {
       + e);}
     return nombre;
    }
-
+   /*
    public void setInstitucionNacional(String idProyecto, String extra){
       try {
          String s = "UPDATE proyecto SET InstitucionNacional = '" + extra + "' WHERE ID-Proyecto = '" + idProyecto + "'";
@@ -292,5 +292,5 @@ public class Proyecto {
          stmt.executeUpdate(s);
       } catch (SQLException e) {System.out.println ("Cannot execute idProyecto()" + e);}
    }
-
+   */
 }

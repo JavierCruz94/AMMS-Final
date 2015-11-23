@@ -25,6 +25,8 @@ import controles.ControlAdministrador;
     out.println("<HTML>");
     out.println("<HEAD>");
     out.println("<META http-equiv=Content-Type content=\"text/html\">");
+    out.println("<link rel=stylesheet href=css/bootstrap.min.css>");
+    out.println("<link rel=stylesheet href=style.css>");
     out.println("</HEAD>");
     out.println("<BODY>");
     out.println("<TITLE>Vinculacion Academica</TITLE>");
@@ -55,11 +57,11 @@ import controles.ControlAdministrador;
     out.println("<p> CRN  <input type=\"text\" name=\"cr\" size=\"15\"></p>");
     out.println("<p> Numero de Alumnos  <input type=\"text\" name=\"numAl\" size=\"15\"></p>");
     out.println("<p> Area Disciplinar  <input type=\"text\" name=\"areaDi\" size=\"15\"></p>");
-    out.println("<p><input type=\"submit\" value=\"Agregar\"name=\"B1\"></p>");
+    out.println("<button class=\"btn btn-info \"type=\"submit\">Agregar</button>");
     out.println("</form>");
 
     out.println("<form method=\"GET\" action=\"index.html\">");
-    out.println("<p><input type=\"submit\" value=\"Cancelar\"name=\"B2\"></p>");
+    out.println("<button class=\"btn btn-danger \"type=\"submit\">Cancelar</button>");
     out.println("</form>");
 
     out.println("</BODY>");
@@ -83,9 +85,9 @@ import controles.ControlAdministrador;
       String idProyecto = thisRequest.getParameter("idProy").trim();
       cp.agregarProy(idAdministrador, idUsuario, instNacional, nombreInstitucion, nombreProyecto, intencionEducativa, objetivoProyecto, actividad, intC, numAlumnos, areaDisciplinar, encargado, idProyecto);
 
-      out.println("<form method=\"GET\" action=\"index.html\">");
+      out.println("<form method=\"GET\" action=\"menuPrivi.html\">");
       out.println("<h2> Proyecto agregado!</h2>");
-      out.println("<p><input type=\"submit\" value=\"Cancelar\"name=\"B2\"></p>");
+      out.println("<button class=\"btn btn-danger \"type=\"submit\">Terminar</button>");
       out.println("</form>");
       }
 }

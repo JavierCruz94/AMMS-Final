@@ -28,10 +28,10 @@ public class Persona{
 	public boolean validarPersona(String idE){
 		try {
 			stmt = conn.createStatement();
-			 stmt.executeQuery ("SELECT `ID-Persona` FROM persona WHERE `ID-Persona` = \'"+ idE + "\'");
+			 stmt.executeQuery ("SELECT IdPersona FROM persona WHERE `IdPersona` = \'"+ idE + "\'");
 			 ResultSet rs = stmt.getResultSet();
 			 if (rs.next()) { //Va al primer registro si lo hay
-					idEntrante= rs.getString ("ID-Persona");
+					idEntrante= rs.getString ("IdPersona");
 					rs.close();
 					return(true);
 			 }
@@ -44,7 +44,7 @@ public class Persona{
 
 	public void agregar(String id, String nombre, String apellidoPat, String apellidoMat, int edad){
 		 try {
-				String s = "INSERT INTO Persona (ID-Persona, Nombre, ApellidoMaterno, ApellidoPaterno, Edad)" +
+				String s = "INSERT INTO Persona (IdPersona, Nombre, ApellidoMaterno, ApellidoPaterno, Edad)" +
 									" VALUES ('"+ id + "' , '" + nombre + "', '" + apellidoPat + "', '" + apellidoMat + "', " + edad + " )";
 				System.out.println(s);
 				stmt.executeUpdate(s);
@@ -56,10 +56,10 @@ public class Persona{
 	public String getIDPersona(String id){
 		String temporal = "";
 		try {
-			 stmt.executeQuery ("SELECT ID-Persona FROM Persona WHERE ID-Persona = '" + id + "'");
+			 stmt.executeQuery ("SELECT IdPersona FROM Persona WHERE IdPersona = '" + id + "'");
 			 ResultSet rs = stmt.getResultSet();
 			 rs.next(); //Va al registro ya validado
-			 temporal = rs.getString("ID-Persona");
+			 temporal = rs.getString("IdPersona");
 			 rs.close();
 			 return(temporal);
 		} catch (SQLException e) {System.out.println ("Cannot getIDPersona()" + e);}
@@ -70,7 +70,7 @@ public class Persona{
 	public String getNombre(String id){
 		String temporal = "";
 		try {
-			 stmt.executeQuery ("SELECT Nombre FROM Persona WHERE ID-Persona = '" + id + "'");
+			 stmt.executeQuery ("SELECT Nombre FROM Persona WHERE IdPersona = '" + id + "'");
 			 ResultSet rs = stmt.getResultSet();
 			 rs.next(); //Va al registro ya validado
 			 temporal = rs.getString("Nombre");
@@ -83,7 +83,7 @@ public class Persona{
 	public String getApellidoMaterno(String id){
 		String temporal = "";
 		try {
-			 stmt.executeQuery ("SELECT ApellidoMaterno FROM Persona WHERE ID-Persona = '" + id + "'");
+			 stmt.executeQuery ("SELECT ApellidoMaterno FROM Persona WHERE IdPersona = '" + id + "'");
 			 ResultSet rs = stmt.getResultSet();
 			 rs.next(); //Va al registro ya validado
 			 temporal = rs.getString("ApellidoMaterno");
@@ -96,7 +96,7 @@ public class Persona{
 	public String getApellidoPaterno(String id){
 		String temporal = "";
 		try {
-			 stmt.executeQuery ("SELECT ApellidoPaterno FROM Persona WHERE ID-Persona = '" + id + "'");
+			 stmt.executeQuery ("SELECT ApellidoPaterno FROM Persona WHERE IdPersona = '" + id + "'");
 			 ResultSet rs = stmt.getResultSet();
 			 rs.next(); //Va al registro ya validado
 			 temporal = rs.getString("ApellidoPaterno");
@@ -109,7 +109,7 @@ public class Persona{
 	public int getEdad(String id){
 		int temporal = 0;
 		try {
-			 stmt.executeQuery ("SELECT Edad FROM Persona WHERE ID-Persona = '" + id + "'");
+			 stmt.executeQuery ("SELECT Edad FROM Persona WHERE IdPersona = '" + id + "'");
 			 ResultSet rs = stmt.getResultSet();
 			 rs.next(); //Va al registro ya validado
 			 temporal = rs.getInt("Edad");
@@ -123,28 +123,28 @@ public class Persona{
 
 	public void setNombre(String id, String nom){
 		try {
-			 String s = "UPDATE Persona SET Nombre = '" + nom + "' WHERE ID-Persona = '" + id + "'";
+			 String s = "UPDATE Persona SET Nombre = '" + nom + "' WHERE IdPersona = '" + id + "'";
 			 stmt.executeUpdate(s);
 		} catch (SQLException e) {System.out.println ("Cannot execute setNombre()" + e);}
 	}
 
 	public void setApellidoMaterno(String id, String am){
 		try {
-			 String s = "UPDATE Persona SET Nombre = '" + am + "' WHERE ID-Persona = '" + id + "'";
+			 String s = "UPDATE Persona SET Nombre = '" + am + "' WHERE IdPersona = '" + id + "'";
 			 stmt.executeUpdate(s);
 		} catch (SQLException e) {System.out.println ("Cannot execute setNombre()" + e);}
 	}
 
 	public void setApellidoPaterno(String id, String ap){
 		try {
-			 String s = "UPDATE Persona SET Nombre = '" + ap + "' WHERE ID-Persona = '" + id + "'";
+			 String s = "UPDATE Persona SET Nombre = '" + ap + "' WHERE IdPersona = '" + id + "'";
 			 stmt.executeUpdate(s);
 		} catch (SQLException e) {System.out.println ("Cannot execute setNombre()" + e);}
 	}
 
 	public void setEdad(String id, int ed){
 		try {
-			 String s = "UPDATE Persona SET Nombre = " + ed + " WHERE ID-Persona = '" + id + "'";
+			 String s = "UPDATE Persona SET Nombre = " + ed + " WHERE IdPersona = '" + id + "'";
 			 stmt.executeUpdate(s);
 		} catch (SQLException e) {System.out.println ("Cannot execute setNombre()" + e);}
 	}

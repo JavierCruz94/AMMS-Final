@@ -27,6 +27,8 @@ import controles.ControlAdministrador;
     out.println("<HTML>");
     out.println("<HEAD>");
     out.println("<META http-equiv=Content-Type content=\"text/html\">");
+    out.println("<link rel=stylesheet href=css/bootstrap.min.css>");
+    out.println("<link rel=stylesheet href=style.css>");
     out.println("</HEAD>");
     out.println("<BODY>");
     out.println("<TITLE>Viculacion Academica</TITLE>");
@@ -47,11 +49,11 @@ import controles.ControlAdministrador;
   out.println("<form method=\"GET\" action=\"InicioS\">");
   out.println("<input type=\"hidden\" name=\"operacion\" value=\"validar\"/>");
   out.println("<p> Cuenta  <input type=\"text\" name=\"cuentaP\" size=\"15\"></p>");
-  out.println("<p><input type=\"submit\" value=\"Enviar\"></p>");
+  out.println("<button class=\"btn btn-info \"type=\"submit\">Enviar</button>");
   out.println("</form>");
 
   out.println("<form method=\"GET\" action=\"index.html\">");
-  out.println("<p><input type=\"submit\" value=\"Cancelar\"></p>");
+  out.println("<button class=\"btn btn-danger \"type=\"submit\">Cancelar</button>");
   out.println("</form>");
 
   out.println("</BODY>");
@@ -76,18 +78,24 @@ public void IniciaSesion(){
   ca = new ControlAdministrador();
   String cuenta = thisRequest.getParameter("cuentaP").trim();
 
+  out.println("<HEAD>Acciones</HEAD>");
   out.println("<p>Bienvenido!</p>");
   out.println("<p>Presione el boton para continuar.</p>");
-  if(ca.validarIDAdministrador(cuenta) || cu.getPrivilegio(cuenta)){
+  if(ca.validarIDAdministrador(cuenta)){
+    out.println("<form method=\"GET\" action=\"menuAdmin.html\">");
+    out.println("<button class=\"btn btn-info \"type=\"submit\">Continuar</button>");
+  }
+  else if(cu.getPrivilegio(cuenta)){
     out.println("<form method=\"GET\" action=\"menuPrivi.html\">");
-    out.println("<p><input type=\"submit\" value=\"Continuar\"name=\"B1\"></p>");
+    out.println("<button class=\"btn btn-info \"type=\"submit\">Continuar</button>");
   }
   else{
     out.println("<form method=\"GET\" action=\"menu.html\">");
-    out.println("<p><input type=\"submit\" value=\"Continuar\"name=\"B1\"></p>");
+    out.println("<button class=\"btn btn-info \"type=\"submit\">Continuar</button>");
   }
   out.println("</form>");
   out.println("</BODY>");
   out.println("</HTML>");
-  }
+}
+
 }
