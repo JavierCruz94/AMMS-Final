@@ -50,6 +50,14 @@ public class ControlProyecto {
         idProyecto = strId;
     }*/
 
+    public String getIdAdmin(String idPro) {
+      return proyecto.getIdAdministrador(idPro);
+    }
+
+    public String getIdUsu(String idPro) {
+      return proyecto.getIdUsuario(idPro);
+    }
+
     public String getInstitucionNacional(String idPro) {
       return proyecto.getInstitucionNacional(idPro);
     }
@@ -66,7 +74,7 @@ public class ControlProyecto {
       return proyecto.getIntencionEducativa(idPro);
     }
 
-    public String getObjetivoProyecto(String idPro) {
+    public String getObjetivoProy(String idPro) {
       return proyecto.getObjetivoProyecto(idPro);
     }
 

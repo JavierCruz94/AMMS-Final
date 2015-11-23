@@ -76,7 +76,6 @@ public void IniciaSesion(){
   ca = new ControlAdministrador();
   String cuenta = thisRequest.getParameter("cuentaP").trim();
 
-  out.println("<HEAD>Acciones</HEAD>");
   out.println("<p>Bienvenido!</p>");
   out.println("<p>Presione el boton para continuar.</p>");
   if(ca.validarIDAdministrador(cuenta) || cu.getPrivilegio(cuenta)){

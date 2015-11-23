@@ -37,10 +37,10 @@ public class Proyecto {
    public String getIdAdministrador(String idProyecto) {
      String nombre = "";
      try {
-       stmt.executeQuery ("SELECT ID-Administrador FROM proyecto WHERE idProyecto = '" +idProyecto + "'");
+       stmt.executeQuery ("SELECT IdAdministrador FROM proyecto WHERE idProyecto = '" +idProyecto + "'");
        ResultSet rs = stmt.getResultSet();
        rs.next(); //Va al registro ya validado
-       nombre = rs.getString("ID-Administrador");
+       nombre = rs.getString("IdAdministrador");
        rs.close();
        return(nombre);
      } catch (SQLException e) {System.out.println ("No encuentra id del administrador"
@@ -51,10 +51,10 @@ public class Proyecto {
    public String getIdUsuario(String idProyecto) {
      String nombre = "";
      try {
-       stmt.executeQuery ("SELECT ID-Usuario FROM proyecto WHERE idProyecto = '" +idProyecto + "'");
+       stmt.executeQuery ("SELECT IdUsuario FROM proyecto WHERE idProyecto = '" +idProyecto + "'");
        ResultSet rs = stmt.getResultSet();
        rs.next(); //Va al registro ya validado
-       nombre = rs.getString("ID-Usuario");
+       nombre = rs.getString("IdUsuario");
        rs.close();
        return(nombre);
      } catch (SQLException e) {System.out.println ("No encuentra id del usuario"
@@ -135,7 +135,7 @@ public class Proyecto {
    public String getActividades(String idProyecto) {
      String nombre = "";
      try {
-       stmt.executeQuery ("SELECT Actividad FROM proyecto WHERE idProyecto = '" +idProyecto + "'");
+       stmt.executeQuery ("SELECT Actividad FROM proyecto WHERE idProyecto = '" + idProyecto + "'");
        ResultSet rs = stmt.getResultSet();
        rs.next(); //Va al registro ya validado
        nombre = rs.getString("Actividad");
@@ -149,13 +149,13 @@ public class Proyecto {
    public int getCRN(String idProyecto) {
      int num = 0;
      try {
-       stmt.executeQuery ("SELECT CRN FROM proyecto WHERE idProyecto = " + idProyecto);
+       stmt.executeQuery ("SELECT CRN FROM proyecto WHERE idProyecto = '" + idProyecto + "'");
        ResultSet rs = stmt.getResultSet();
        rs.next(); //Va al registro ya validado
        num = rs.getInt("CRN");
        rs.close();
        return(num);
-     } catch (SQLException e) {System.out.println ("No encuentra el CRN"
+     } catch (SQLException e) {System.out.println ("No encuentra el CRN. "
       + e);}
     return num;
    }
@@ -163,13 +163,13 @@ public class Proyecto {
    public int getNumAlumnosIn(String idProyecto) {
      int num = 0;
      try {
-       stmt.executeQuery ("SELECT NumALumnos FROM proyecto WHERE idProyecto = " + idProyecto);
+       stmt.executeQuery ("SELECT NumALumnos FROM proyecto WHERE idProyecto = '" + idProyecto + "'");
        ResultSet rs = stmt.getResultSet();
        rs.next(); //Va al registro ya validado
        num = rs.getInt("NumALumnos");
        rs.close();
        return(num);
-     } catch (SQLException e) {System.out.println ("No encuentra el numero de alumnos"
+     } catch (SQLException e) {System.out.println ("No encuentra el numero de alumnos. "
       + e);}
     return num;
    }
@@ -177,13 +177,13 @@ public class Proyecto {
    public int getAreasDiciplinar(String idProyecto) {
      int num = 0;
      try {
-       stmt.executeQuery ("SELECT AreasDiciplina FROM proyecto WHERE idProyecto = " +idProyecto);
+       stmt.executeQuery ("SELECT AreasDiciplina FROM proyecto WHERE idProyecto = '" + idProyecto + "'");
        ResultSet rs = stmt.getResultSet();
        rs.next(); //Va al registro ya validado
        num = rs.getInt("AreasDiciplina");
        rs.close();
        return(num);
-     } catch (SQLException e) {System.out.println ("No encuentra el area diciplinar"
+     } catch (SQLException e) {System.out.println ("No encuentra el area diciplinar. "
       + e);}
     return num;
    }
@@ -205,10 +205,10 @@ public class Proyecto {
    public String getIdProyecto(String idProyecto) {
      String nombre = "";
      try {
-       stmt.executeQuery ("SELECT ID-Proyecto FROM proyecto WHERE idProyecto = '" +idProyecto + "'");
+       stmt.executeQuery ("SELECT IdProyecto FROM proyecto WHERE idProyecto = '" +idProyecto + "'");
        ResultSet rs = stmt.getResultSet();
        rs.next(); //Va al registro ya validado
-       nombre = rs.getString("ID-Proyecto");
+       nombre = rs.getString("IdProyecto");
        rs.close();
        return(nombre);
      } catch (SQLException e) {System.out.println ("No encuentra el id del proyecto"
