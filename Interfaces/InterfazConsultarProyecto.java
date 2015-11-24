@@ -44,7 +44,6 @@ import controles.ControlProyecto;
   }
 
   public void iniciarConsultaP(){
-    out.println("<p>El tipo de usuario es: " + tipo_usuario + "</p>");
     out.println("<p>Ingrese ID del Proyecto</p>");
     out.println("<form method=\"GET\" action=\"ConsultarProyecto\">");
     out.println("<input type=\"hidden\" name=\"operacion\" value=\"consultar\"/>");
@@ -60,7 +59,16 @@ import controles.ControlProyecto;
     out.println("<button class=\"btn btn-info \"type=\"submit\">Consultar</button>");
     out.println("</form>");
 
-    out.println("<form method=\"GET\" action=\"index.html\">");
+    if (tipo_usuario.equals("1")) {
+      out.println("<form method=\"GET\" action=\"menuAdmin.html?tipo=1\">");
+
+    } else if (tipo_usuario.equals("2")){
+      out.println("<form method=\"GET\" action=\"menuPrivi.html?tipo=2\">");
+
+    } else if (tipo_usuario.equals("3")) {
+      out.println("<form method=\"GET\" action=\"menu.html?tipo=3\">");
+
+    }
     out.println("<button class=\"btn btn-danger \"type=\"submit\">Cancelar</button>");
     out.println("</form>");
 
@@ -107,7 +115,6 @@ import controles.ControlProyecto;
 
 
       }
-      out.println("<p> El tipo de usuario aqui es: " + tipo_usuario + "</p>");
       out.println("<h3> Proyecto con ID " + idProyecto + "</h3>");
       out.println("<p> ID administrador: " + idAdministrador + "</p>");
       out.println("<p> ID usuario: " + idUsuario + "</p>");

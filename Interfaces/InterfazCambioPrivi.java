@@ -13,6 +13,7 @@ import controles.ControlAdministrador;
   PrintWriter out;
   ControlUsuario cu;
   ControlAdministrador ca;
+  String tipo_usuario;
   //String cuentaP;
 
    public void doGet(HttpServletRequest request,
@@ -21,6 +22,7 @@ import controles.ControlAdministrador;
     thisResponse = response;
     thisRequest = request;
     thisResponse.setContentType("text/html");
+    tipo_usuario = thisRequest.getParameter("tipo");
     out = thisResponse.getWriter();
     //Pagina Web de respuesta
     out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\">");
@@ -57,10 +59,18 @@ import controles.ControlAdministrador;
   out.println("<p><input type=\"text\" name=\"Privi\"class=\"form-control\"placeholder=\"Privilegio\"></p>");
   out.println("</div>");
   out.println("</div>");
+  out.println("<input type=\"hidden\" name=\"tipo\" value=\"" + tipo_usuario + "\"/>");
   out.println("<button class=\"btn btn-info \"type=\"submit\">Enviar</button>");
   out.println("</form>");
 
-  out.println("<form method=\"GET\" action=\"index.html\">");
+  if (tipo_usuario.equals("1")) {
+    out.println("<form method=\"GET\" action=\"menuAdmin.html?tipo=1\">");
+
+  } else if (tipo_usuario.equals("2")){
+    out.println("<form method=\"GET\" action=\"menuPrivi.html?tipo=2\">");
+
+  }
+
   out.println("<button class=\"btn btn-danger \"type=\"submit\">Cancelar</button>");
   out.println("</form>");
 
@@ -84,7 +94,14 @@ import controles.ControlAdministrador;
 
   public void VlidacionCambio(){
     out.println("<p>Cambio fue exitoso</p>");
-    out.println("<form method=\"GET\" action=\"menuAdmin.html\">");
+
+    if (tipo_usuario.equals("1")) {
+      out.println("<form method=\"GET\" action=\"menuAdmin.html?tipo=1\">");
+
+    } else if (tipo_usuario.equals("2")){
+      out.println("<form method=\"GET\" action=\"menuPrivi.html?tipo=2\">");
+
+    }
     out.println("<button class=\"btn btn-danger \"type=\"submit\">Terminar</button>");
     out.println("</form>");
     out.println("</BODY>");

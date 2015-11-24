@@ -12,6 +12,7 @@ import controles.ControlAdministrador;
   HttpServletRequest thisRequest;
   PrintWriter out;
   ControlProyecto cp;
+  String tipo_usuario;
 
    public void doGet(HttpServletRequest request,
         HttpServletResponse response)
@@ -19,6 +20,7 @@ import controles.ControlAdministrador;
     thisResponse = response;
     thisRequest = request;
     thisResponse.setContentType("text/html");
+    tipo_usuario = thisRequest.getParameter("tipo");
     out = thisResponse.getWriter();
     //Pagina Web de respuesta
     out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\">");
@@ -114,10 +116,18 @@ import controles.ControlAdministrador;
     out.println("<p><input type=\"text\" name=\"areaDi\"class=\"form-control\"placeholder=\" Area Disciplinar \"></p>");
     out.println("</div>");
     out.println("</div>");
+    out.println("<input type=\"hidden\" name=\"tipo\" value=\"" + tipo_usuario + "\"/>");
     out.println("<button class=\"btn btn-info \"type=\"submit\">Agregar</button>");
     out.println("</form>");
 
-    out.println("<form method=\"GET\" action=\"index.html\">");
+    if (tipo_usuario.equals("1")) {
+      out.println("<form method=\"GET\" action=\"menuAdmin.html?tipo=1\">");
+
+    } else if (tipo_usuario.equals("2")){
+      out.println("<form method=\"GET\" action=\"menuPrivi.html?tipo=2\">");
+
+    }
+
     out.println("<button class=\"btn btn-danger \"type=\"submit\">Cancelar</button>");
     out.println("</form>");
 
@@ -144,7 +154,15 @@ import controles.ControlAdministrador;
       boolean valido = cp.validarProyecto(idProyecto);
       if (valido) {
         cp.agregarProy(idAdministrador, idUsuario, instNacional, nombreInstitucion, nombreProyecto, intencionEducativa, objetivoProyecto, actividad, intC, numAlumnos, areaDisciplinar, encargado, idProyecto);
-        out.println("<form method=\"GET\" action=\"menuPrivi.html\">");
+
+        if (tipo_usuario.equals("1")) {
+          out.println("<form method=\"GET\" action=\"menuAdmin.html?tipo=1\">");
+
+        } else if (tipo_usuario.equals("2")){
+          out.println("<form method=\"GET\" action=\"menuPrivi.html?tipo=2\">");
+
+        }
+
         out.println("<h2> Proyecto agregado!</h2>");
         out.println("<button class=\"btn btn-danger \"type=\"submit\">Terminar</button>");
         out.println("</form>");
