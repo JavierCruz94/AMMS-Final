@@ -80,7 +80,7 @@ import controles.ControlPersona;
   out.println("<button class=\"btn btn-info \"type=\"submit\">Enviar</button>");
   out.println("</form>");
 
-  out.println("<form method=\"GET\" action=\"menuAdmin.html\">");
+  out.println("<form method=\"GET\" action=\"index.html\">");
   out.println("<button class=\"btn btn-danger \"type=\"submit\">Cancelar</button>");
   out.println("</form>");
 
@@ -100,23 +100,20 @@ public void validarDatos(){
     contra = thisRequest.getParameter("contraU").trim();
     priviU= Integer.parseInt(thisRequest.getParameter("privi").trim());
 
-    if(!cu.validarIDUsuario(cuentaUsu) && cp.validarIDPersona(cuentaPer)&&(ca.validarIDAdministrador(cuentaPriA))){
+    if(!cu.validarIDUsuario(cuentaUsu) && cp.validarIDPersona(cuentaPer)&& ca.validarIDAdministrador(cuentaPriA)){
       out.println("<p>Usuario registrado exitosamente</p>");
       out.println("<p>ID de usuario: " + cuentaUsu + " </p>");
       out.println("<p>Contrasena de usuario: " + contra + " </p>");
       if(ca.validarIDAdministrador(cuentaPriA)){
           out.println("<p>Agregado por: " + cuentaPriA + " </p>");
       }
+
       if(ca.validarIDAdministrador(cuentaPriA)){
         cu.agregarUsuarioDB(cuentaPer, cuentaUsu, cuentaPriA, contra, priviU);
       }
       else{
         cu.agregarUsuarioDB(cuentaPer, cuentaUsu, cuentaPri, contra, priviU);
       }
-
-      out.println("<form method=\"GET\" action=\"menuAdmin.html\">");
-      out.println("<button class=\"btn btn-danger \"type=\"submit\">Terminar</button>");
-      out.println("</form>");
     }
     else{
       if(cu.validarIDUsuario(cuentaUsu)){
@@ -130,7 +127,9 @@ public void validarDatos(){
       }
       IniciarUsuarioNuevo();
     }
-
+    out.println("<form method=\"GET\" action=\"menuPrivi.html\">");
+    out.println("<button class=\"btn btn-danger \"type=\"submit\">Terminar</button>");
+    out.println("</form>");
     out.println("</BODY>");
     out.println("</HTML>");
 

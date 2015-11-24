@@ -44,6 +44,10 @@ import controles.ControlAdministrador;
     } else if (tipo_usuario.equals("2")) {
       out.println("<form method=\"GET\" action=\"menuPrivi.html?tipo=2\">");
     }
+    else if (tipo_usuario.equals("3")) {
+    out.println("<form method=\"GET\" action=\"menu.html?tipo=3\">");
+  }
+
     out.println("<button class=\"btn btn-danger \"type=\"submit\">Terminar</button>");
   }
 
