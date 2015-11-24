@@ -13,6 +13,7 @@ import controles.ControlProyecto;
   HttpServletRequest thisRequest;
   PrintWriter out;
   ControlProyecto cp;
+  String tipo_usuario;
 
    public void doGet(HttpServletRequest request,
         HttpServletResponse response)
@@ -20,6 +21,7 @@ import controles.ControlProyecto;
     thisResponse = response;
     thisRequest = request;
     thisResponse.setContentType("text/html");
+    tipo_usuario = thisRequest.getParameter("tipo");
     out = thisResponse.getWriter();
     //Pagina Web de respuesta
     out.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\">");
@@ -42,6 +44,7 @@ import controles.ControlProyecto;
   }
 
   public void iniciarConsultaP(){
+    out.println("<p>El tipo de usuario es: " + tipo_usuario + "</p>");
     out.println("<p>Ingrese ID del Proyecto</p>");
     out.println("<form method=\"GET\" action=\"ConsultarProyecto\">");
     out.println("<input type=\"hidden\" name=\"operacion\" value=\"consultar\"/>");
@@ -50,6 +53,10 @@ import controles.ControlProyecto;
     out.println("<p><input type=\"text\" name=\"idProy\"class=\"form-control\"placeholder=\"Ingresar ID de proyecto\"></p>");
     out.println("</div>");
     out.println("</div>");
+
+
+    out.println("<input type=\"hidden\" name=\"tipo\" value=\"" + tipo_usuario + "\"/>");
+
     out.println("<button class=\"btn btn-info \"type=\"submit\">Consultar</button>");
     out.println("</form>");
 
@@ -84,7 +91,23 @@ import controles.ControlProyecto;
       int areaDisciplinar = cp.getAreasDiciplinar(idProyecto);
       String encargado = cp.getEncargado(idProyecto);
 
-      out.println("<form method=\"GET\" action=\"index.html\">");
+
+
+      if(tipo_usuario.equals("1")) {
+        out.println("<form method=\"GET\" action=\"menuAdmin.html\">");
+        System.out.println("entra a tipo de usuario 1");
+      } else if(tipo_usuario.equals("2")) {
+        out.println("<form method=\"GET\" action=\"menuPrivi.html\">");
+        System.out.println("entra a tipo de usuario 2");
+
+      } else if (tipo_usuario.equals("3")) {
+        out.println("<form method=\"GET\" action=\"menu.html\">");
+        System.out.println("entra a tipo de usuario 3");
+        System.out.println(tipo_usuario);
+
+
+      }
+      out.println("<p> El tipo de usuario aqui es: " + tipo_usuario + "</p>");
       out.println("<h3> Proyecto con ID " + idProyecto + "</h3>");
       out.println("<p> ID administrador: " + idAdministrador + "</p>");
       out.println("<p> ID usuario: " + idUsuario + "</p>");
@@ -97,7 +120,6 @@ import controles.ControlProyecto;
       out.println("<p> Numero de alumnos: " + numAlumnos + "</p>");
       out.println("<p> Area diciplinar: " + areaDisciplinar + "</p>");
       out.println("<p> Encargado: " + encargado + "</p>");
-      out.println("<form method=\"GET\" action=\"menuPrivi.html\">");
       out.println("<button class=\"btn btn-danger \"type=\"submit\">Cancelar</button>");
       out.println("</form>");
     }
