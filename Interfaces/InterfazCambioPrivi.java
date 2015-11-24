@@ -59,7 +59,7 @@ import controles.ControlAdministrador;
   out.println("<p><input type=\"text\" name=\"Privi\"class=\"form-control\"placeholder=\"Privilegio\"></p>");
   out.println("</div>");
   out.println("</div>");
-  out.println("<input type=\"hidden\" name=\"tipo\" value=\"" + tipo_usuario + "\"/>");
+  out.println("<input type=\"hidden\" name=\"tipo\" value=\"" + tipo_usuario +    "\"/>");
   out.println("<button class=\"btn btn-info \"type=\"submit\">Enviar</button>");
   out.println("</form>");
 
