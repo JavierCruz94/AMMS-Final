@@ -33,7 +33,8 @@ import controles.ControlProyecto;
     out.println("</HEAD>");
     out.println("<BODY>");
     out.println("<TITLE>Vinculacion Academica</TITLE>");
-    out.println("<h2>Consulta de proyectos</h2>");
+    out.println("<h2>Viculacion Academica</h2>");
+    out.println("<h3>Consulta de proyectos</h3>");
 
     String operacion = request.getParameter("operacion");
     if(operacion == null){ // El menu nos envia un parametro para indicar el inicio de una transaccion
@@ -44,7 +45,6 @@ import controles.ControlProyecto;
   }
 
   public void iniciarConsultaP(){
-    out.println("<p>Ingrese ID del Proyecto</p>");
     out.println("<form method=\"GET\" action=\"ConsultarProyecto\">");
     out.println("<input type=\"hidden\" name=\"operacion\" value=\"consultar\"/>");
     out.println("<div class=row>");

@@ -7,6 +7,8 @@ public class Administrador  {
    Connection conn;
    Statement stmt;
    String idEntrante = "DEFAULT2";
+   boolean validA = false;
+   String contrau = "";
 
    public Administrador(){
       try {
@@ -36,6 +38,42 @@ public class Administrador  {
        }
        return false;
      }
+
+     public boolean inicioSesionA(String idE,String contraE){
+
+       try {
+          stmt = conn.createStatement();
+           stmt.executeQuery ("SELECT IdAdministrador FROM administrador WHERE IdAdministrador = \'"+ idE+ "\'" );
+           ResultSet rs = stmt.getResultSet();
+           if (rs.next()) { //Va al primer registro si lo hay
+              idEntrante= rs.getString ("IdAdministrador");
+              rs.close();
+              validA = true;
+           }
+        } catch (SQLException e) {
+
+           System.out.println("Entró al catch de la tabla administrador");
+         }
+
+         try {
+            stmt = conn.createStatement();
+             stmt.executeQuery ("SELECT Contrasena FROM administrador WHERE IdAdministrador = \'"+ idE+ "\'" );
+             ResultSet rs = stmt.getResultSet();
+             if (rs.next()) { //Va al primer registro si lo hay
+                contrau= rs.getString ("Contrasena");
+                rs.close();
+                if(validA){
+                  return(true);
+                }
+             }
+          } catch (SQLException e) {
+
+             System.out.println("Entró al catch de la tabla administrador");
+           }
+         return false;
+       }
+
+
      /*
    public void agregar(String IDP, String nom, String apeM,String apeP,int edad,String IDA,String ContraU){
       try {

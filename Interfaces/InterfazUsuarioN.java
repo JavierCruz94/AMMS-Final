@@ -35,7 +35,7 @@ import controles.ControlPersona;
     out.println("</HEAD>");
     out.println("<BODY>");
     out.println("<TITLE>Viculacion Academica</TITLE>");
-    out.println("<h2>Mapeo y registro de proyectos</h2>");
+    out.println("<h2>Viculacion Academica</h2>");
     out.println("<h3>Dar de alta un ususario</h3>");
     //out.println("<p>Esta opci�n no esta disponible por el momento.</p>");
 
@@ -127,8 +127,6 @@ public void validarDatos(){
       }
       IniciarUsuarioNuevo();
     }
-    out.println("<form method=\"GET\" action=\"menuPrivi.html\">");
-    out.println("<button class=\"btn btn-danger \"type=\"submit\">Terminar</button>");
     out.println("</form>");
     out.println("</BODY>");
     out.println("</HTML>");

@@ -32,7 +32,7 @@ import controles.ControlAdministrador;
     out.println("</HEAD>");
     out.println("<BODY>");
     out.println("<TITLE>Viculacion Academica</TITLE>");
-    out.println("<h2>Mapeo y registro de proyectos</h2>");
+    out.println("<h2>Viculacion Academica</h2>");
     out.println("<h3>Inicio sesion</h3>");
     //out.println("<p>Esta opci�n no esta disponible por el momento.</p>");
 
@@ -52,6 +52,11 @@ import controles.ControlAdministrador;
   out.println("<p><input type=\"text\" name=\"cuentaP\"class=\"form-control\"placeholder=\"Ingresar ID\"></p>");
   out.println("</div>");
   out.println("</div>");
+  out.println("<div class=row>");
+  out.println("<div class=\"col-xs-2\">");
+  out.println("<p><input type=\"text\" name=\"contraP\"class=\"form-control\"placeholder=\"Password\"></p>");
+  out.println("</div>");
+  out.println("</div>");
   out.println("<button class=\"btn btn-info \"type=\"submit\">Enviar</button>");
   out.println("</form>");
 
@@ -66,12 +71,13 @@ import controles.ControlAdministrador;
 public void validarCuenta(){
   cu = new ControlUsuario();
   ca = new ControlAdministrador();
-  String cuenta = thisRequest.getParameter("cuentaP").trim(); //String.parseStr(thisRequest.getParameter("cuentaP").trim())
-  boolean existe = cu.validarIDUsuario(cuenta);
-  if (cu.validarIDUsuario(cuenta) || ca.validarIDAdministrador(cuenta)){
+  String cuenta = thisRequest.getParameter("cuentaP").trim();
+  String contra = thisRequest.getParameter("contraP").trim();
+   //String.parseStr(thisRequest.getParameter("cuentaP").trim())
+  if (cu.iSusuario(cuenta,contra) || ca.iSAdmin(cuenta,contra)){
      IniciaSesion();
   } else {
-    out.println("<p>Ingrese matricula de nuevo</p>");
+    out.println("<p>Ingrese ID/Password de nuevo</p>");
      IniciarSesionPagina();
   }
 }

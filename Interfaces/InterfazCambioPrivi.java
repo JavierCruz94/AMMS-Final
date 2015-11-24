@@ -34,7 +34,8 @@ import controles.ControlAdministrador;
     out.println("</HEAD>");
     out.println("<BODY>");
     out.println("<TITLE>Viculacion Academica</TITLE>");
-    out.println("<h2>Cambio de privilegio a un usuario</h2>");
+    out.println("<h2>Viculacion Academica</h2>");
+    out.println("<h3>Cambio de privilegio a un usuario</h3>");
     //out.println("<p>Esta opci�n no esta disponible por el momento.</p>");
 
   String operacion = request.getParameter("operacion");
@@ -46,7 +47,6 @@ import controles.ControlAdministrador;
   }
 
   public void IniciarCambioPrivi(){
-  out.println("<p>Ingrese el ID dle usuario</p>");
   out.println("<form method=\"GET\" action=\"CambioP\">");
   out.println("<input type=\"hidden\" name=\"operacion\" value=\"cambio\"/>");
   out.println("<div class=row>");

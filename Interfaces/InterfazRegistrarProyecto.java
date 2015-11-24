@@ -32,7 +32,9 @@ import controles.ControlAdministrador;
     out.println("</HEAD>");
     out.println("<BODY>");
     out.println("<TITLE>Vinculacion Academica</TITLE>");
-    out.println("<h2>Registro de proyectos</h2>");
+    out.println("<h2>Viculacion Academica</h2>");
+    out.println("<h3>Registro de proyectos</h3>");
+
 
     String operacion = request.getParameter("operacion");
     if(operacion == null){ // El menu nos envia un parametro para indicar el inicio de una transaccion
@@ -163,7 +165,7 @@ import controles.ControlAdministrador;
 
         }
 
-        out.println("<h2> Proyecto agregado!</h2>");
+        out.println("<h4> Proyecto agregado!</h4>");
         out.println("<button class=\"btn btn-danger \"type=\"submit\">Terminar</button>");
         out.println("</form>");
       } else {

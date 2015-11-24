@@ -35,4 +35,8 @@ public class ControlAdministrador extends ControlPersona {
 	public boolean validarIDAdministrador(String id){
 			return(admin.validarAdmin(id));
 	 }
+	 public boolean iSAdmin(String id,String contra){
+ 			return(admin.inicioSesionA(id,contra));
+ 	 }
+
 }
