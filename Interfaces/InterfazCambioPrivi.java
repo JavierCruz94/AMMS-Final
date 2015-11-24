@@ -47,8 +47,16 @@ import controles.ControlAdministrador;
   out.println("<p>Ingrese el ID dle usuario</p>");
   out.println("<form method=\"GET\" action=\"CambioP\">");
   out.println("<input type=\"hidden\" name=\"operacion\" value=\"cambio\"/>");
-  out.println("<p> Cuenta  <input type=\"text\" name=\"cuentaP\" size=\"15\"></p>");
-  out.println("<p> Privilegio  <input type=\"text\" name=\"Privi\" size=\"15\"></p>");
+  out.println("<div class=row>");
+  out.println("<div class=\"col-xs-2\">");
+  out.println("<p><input type=\"text\" name=\"cuentaP\"class=\"form-control\"placeholder=\"Cuenta\"></p>");
+  out.println("</div>");
+  out.println("</div>");
+  out.println("<div class=row>");
+  out.println("<div class=\"col-xs-2\">");
+  out.println("<p><input type=\"text\" name=\"Privi\"class=\"form-control\"placeholder=\"Privilegio\"></p>");
+  out.println("</div>");
+  out.println("</div>");
   out.println("<button class=\"btn btn-info \"type=\"submit\">Enviar</button>");
   out.println("</form>");
 

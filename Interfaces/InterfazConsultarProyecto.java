@@ -45,7 +45,11 @@ import controles.ControlProyecto;
     out.println("<p>Ingrese ID del Proyecto</p>");
     out.println("<form method=\"GET\" action=\"ConsultarProyecto\">");
     out.println("<input type=\"hidden\" name=\"operacion\" value=\"consultar\"/>");
-    out.println("<p> Id del Proyecto  <input type=\"text\" name=\"idProy\" size=\"15\"></p>");
+    out.println("<div class=row>");
+    out.println("<div class=\"col-xs-2\">");
+    out.println("<p><input type=\"text\" name=\"idProy\"class=\"form-control\"placeholder=\"Ingresar ID de proyecto\"></p>");
+    out.println("</div>");
+    out.println("</div>");
     out.println("<button class=\"btn btn-info \"type=\"submit\">Consultar</button>");
     out.println("</form>");
 
