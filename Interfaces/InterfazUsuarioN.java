@@ -80,7 +80,7 @@ import controles.ControlPersona;
   out.println("<button class=\"btn btn-info \"type=\"submit\">Enviar</button>");
   out.println("</form>");
 
-  out.println("<form method=\"GET\" action=\"index.html\">");
+  out.println("<form method=\"GET\" action=\"menuAdmin.html\">");
   out.println("<button class=\"btn btn-danger \"type=\"submit\">Cancelar</button>");
   out.println("</form>");
 
@@ -114,6 +114,10 @@ public void validarDatos(){
       else{
         cu.agregarUsuarioDB(cuentaPer, cuentaUsu, cuentaPri, contra, priviU);
       }
+
+      out.println("<form method=\"GET\" action=\"menuAdmin.html\">");
+      out.println("<button class=\"btn btn-danger \"type=\"submit\">Cancelar</button>");
+
     }
     else{
       if(cu.validarIDUsuario(cuentaUsu)){
